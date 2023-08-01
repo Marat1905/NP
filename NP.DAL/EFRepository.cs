@@ -3,7 +3,7 @@ using NP.DAL.Interfaces;
 
 namespace NP.DAL
 {
-    internal class EFRepository<T> : IRepository<T> where T : Entity, new()
+    public class EFRepository<T> : IRepository<T> where T : Entity, new()
     {
         public IQueryable<T> Items => throw new NotImplementedException();
 

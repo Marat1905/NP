@@ -2,6 +2,8 @@
 using NP.Break.Models;
 using NP.Break.Services.Interfaces;
 using NP.DAL.Context;
+using NP.DAL.Entityes;
+using NP.DAL.Interfaces;
 using NP.Infrastructure.Enums;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,10 @@ namespace NP.Break.Services
 {
     public class BreakService : IBreakService
     {
-        private readonly NPDB db;
+       // private readonly NPDB db;
 
         private int _BreakInt;
+        private readonly IRepository<BreakDbModel> db;
 
         public event IBreakService.BreakHandler? Notify;
 
@@ -63,9 +66,9 @@ namespace NP.Break.Services
         }
 
 
-        public BreakService(NPDB db)
+        public BreakService(IRepository<BreakDbModel> db)
         {
-            db = db;
+            this.db = db;
         }
 
        

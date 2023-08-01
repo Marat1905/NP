@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using NP.DAL.Context;
+using NP.DAL;
 
 namespace TestConsole.Data
 {
@@ -26,6 +27,7 @@ namespace TestConsole.Data
                opt.EnableSensitiveDataLogging();
            })
            .AddTransient<DbInitializer>()
+           .AddRepositoriesInDB()
         ;
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NP.Break.Services;
 using NP.Break.Services.Interfaces;
+using NP.DAL;
 using NP.DAL.Entityes;
 using NP.DAL.Interfaces;
 using TestConsole.Data;
