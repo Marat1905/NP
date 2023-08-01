@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.Break", "NP.Break\NP.Break.csproj", "{D6B43671-0EAE-4D92-8649-D54EA5B7ED41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.Break", "NP.Break\NP.Break.csproj", "{D6B43671-0EAE-4D92-8649-D54EA5B7ED41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "Test\TestConsole\TestConsole.csproj", "{80C89493-6253-46DD-8B6A-3F838F5518DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "Test\TestConsole\TestConsole.csproj", "{80C89493-6253-46DD-8B6A-3F838F5518DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.DAL", "NP.DAL\NP.DAL.csproj", "{9AA8DB48-FD4E-4A54-8C82-4F4F32502D60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.DAL", "NP.DAL\NP.DAL.csproj", "{9AA8DB48-FD4E-4A54-8C82-4F4F32502D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.Infrastructure", "NP.Infrastructure\NP.Infrastructure.csproj", "{3FAD7C47-984E-4DEB-9BB2-D35552CB9D9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.Infrastructure", "NP.Infrastructure\NP.Infrastructure.csproj", "{3FAD7C47-984E-4DEB-9BB2-D35552CB9D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
