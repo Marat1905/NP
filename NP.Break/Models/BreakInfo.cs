@@ -4,7 +4,7 @@ using System;
 namespace NP.Break.Models
 {
     /// <summary> Формирование обрыва </summary>
-    public class BreakInfo
+    public class BreakInfo:ICloneable
     {
         #region Свойства
         /// <summary>Идентификатор </summary>
@@ -63,6 +63,13 @@ namespace NP.Break.Models
             ReleerSpeed = releerSpeed;
             Status = status;
             StartBreak = DateTime.Now;
+        }
+
+        public BreakInfo() { }
+
+        public object Clone()
+        {
+             return MemberwiseClone();
         }
         #endregion
 

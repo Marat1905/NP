@@ -25,7 +25,7 @@ namespace NP.Break.Services.Interfaces
         /// <param name="smena">Смена</param>
         /// <param name="filter">Фильтр времени</param>
         /// <returns>Коллекция обрывов</returns>
-        IEnumerable<BreakInfo> Smena(DateTime data,Smena smena,TimeSpan filter = new TimeSpan());
+        IEnumerable<BreakInfo> SmenaSearch(DateTime data,Smena smena,TimeSpan filter = new TimeSpan());
 
         /// <summary>Выборка за период </summary>
         /// <param name="start">Начальная дата поиска</param>
