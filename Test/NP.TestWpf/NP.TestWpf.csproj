@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\NP.Break\NP.Break.csproj" />
+    <ProjectReference Include="..\..\NP.ChangeSettings\NP.ChangeSettings.csproj" />
     <ProjectReference Include="..\..\NP.DAL\NP.DAL.csproj" />
   </ItemGroup>
 

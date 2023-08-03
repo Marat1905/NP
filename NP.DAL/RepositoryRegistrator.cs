@@ -8,6 +8,7 @@ namespace NP.DAL
     {
         public static IServiceCollection AddRepositoriesInDB(this IServiceCollection services) => services
         .AddTransient<IRepository<BreakDbModel>, EFRepository<BreakDbModel>>()
+        .AddTransient<IRepository<СhangeSettingsDbModel>,EFRepository<СhangeSettingsDbModel>>()
           ;
     }
 }

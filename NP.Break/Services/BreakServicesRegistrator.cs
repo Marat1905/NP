@@ -10,8 +10,8 @@ namespace NP.Break.Services
         public static IServiceCollection AddBreakServices(this IServiceCollection services) => services
           .AddSingleton<IBreakService, BreakService>(sp =>
           {
-              var BreakService = sp.GetRequiredService<IRepository<BreakDbModel>>();
-              return new BreakService(BreakService);
+              var repository = sp.GetRequiredService<IRepository<BreakDbModel>>();
+              return new BreakService(repository);
           })
          ;
     }

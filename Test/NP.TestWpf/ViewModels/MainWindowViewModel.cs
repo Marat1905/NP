@@ -1,6 +1,7 @@
 ﻿using NP.Break.Models;
 using NP.Break.Services;
 using NP.Break.Services.Interfaces;
+using NP.ChangeSettings.Services.Interfaces;
 using NP.DAL.Entityes;
 using NP.DAL.Interfaces;
 using NP.Infrastructure.Enums;
@@ -15,10 +16,10 @@ namespace NP.TestWpf.ViewModels
 {
     internal class MainWindowViewModel:ViewModel
     {
-        private readonly IRepository<BreakDbModel> _Repository;
         private readonly IBreakService _BreakService;
+        private readonly IChangeRunSettingsService _RunSettingsService;
 
-        
+
 
         #region Заголовок окна. 
         private string _Title = "Главное окно";
@@ -80,11 +81,13 @@ namespace NP.TestWpf.ViewModels
 
         #endregion
 
-        public MainWindowViewModel(IRepository<BreakDbModel> repository, IBreakService breakService)
+        public MainWindowViewModel(IBreakService breakService, IChangeRunSettingsService runSettingsService)
         {
-            _Repository = repository;
             _BreakService = breakService;
+            _RunSettingsService = runSettingsService;
+           
             _BreakService.Notify += _BreakService_Notify;
+
             BreakList = _BreakService.Breaks;
             if (_BreakService != null)
             {
@@ -95,11 +98,11 @@ namespace NP.TestWpf.ViewModels
                else
                     Break=false;
 
-                var result1 = _BreakService.Period(new DateTime(2023, 08, 02, 08, 00, 00), new DateTime(2023, 08, 02, 20, 00, 00)).ToList();
-                var result2 = _BreakService.SmenaSearch(new DateTime(2023, 08, 02), Smena.Day, TimeSpan.FromMinutes(20)).ToList();
+                var result1 = _BreakService.Period<BreakInfo>(new DateTime(2023, 08, 02, 08, 00, 00), new DateTime(2023, 08, 02, 20, 00, 00)).ToList();
+                var result2 = _BreakService.SmenaSearch<BreakInfo>(new DateTime(2023, 08, 02), Smena.Day, TimeSpan.FromMinutes(20)).ToList();
 
-                var result3 = _BreakService.Period(new DateTime(2023, 08, 02, 20, 00, 00), new DateTime(2023, 08, 03, 08, 00, 00),TimeSpan.FromMinutes(20)).ToList();
-                var result4 = _BreakService.SmenaSearch(new DateTime(2023, 08, 02), Smena.Night, TimeSpan.FromMinutes(20)).ToList();
+                var result3 = _BreakService.Period<BreakInfo>(new DateTime(2023, 08, 02, 20, 00, 00), new DateTime(2023, 08, 03, 08, 00, 00),TimeSpan.FromMinutes(20)).ToList();
+                var result4 = _BreakService.SmenaSearch<BreakInfo>(new DateTime(2023, 08, 02), Smena.Night, TimeSpan.FromMinutes(20)).ToList();
                 //BreakList = result2;
             }
         }

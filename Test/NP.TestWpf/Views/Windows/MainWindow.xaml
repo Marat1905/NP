@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
             <ToggleButton Grid.Column="0" Grid.Row="0"  Content="Имитация обрыва" Style="{StaticResource ToggleButtonStyle1}" Command="{Binding BreakCommand}" IsChecked="{Binding Break}" />
             <TextBox Grid.Column="0"  Grid.Row="1"  Text="{Binding Break}" Height="20" IsEnabled="False" Margin="0,0,10,0"/>
-            <DataGrid ItemsSource="{Binding BreakList}"  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"/>
+            <DataGrid ItemsSource="{Binding BreakList}" IsReadOnly="True"  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"/>
         </Grid>
        
     </DockPanel>

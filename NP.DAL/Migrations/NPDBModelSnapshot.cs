@@ -57,6 +57,35 @@ namespace NP.DAL.Migrations
 
                     b.ToTable("BreaksTable");
                 });
+
+            modelBuilder.Entity("NP.DAL.Entityes.СhangeSettingsDbModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("End")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("SetpointPaperFormatChange")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SetpointPaperWeightChange")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SetpointWireChange")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("TEXT");
+
+                    b.Property<TimeSpan?>("TimeRun")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("СhangeSettingsTable");
+                });
 #pragma warning restore 612, 618
         }
     }

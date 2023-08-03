@@ -5,6 +5,7 @@ using NP.TestWpf.ViewModels;
 using System;
 using System.Windows;
 using NP.Break.Services;
+using NP.ChangeSettings.Services;
 
 namespace NP.TestWpf
 {
@@ -22,6 +23,7 @@ namespace NP.TestWpf
         internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
             .AddDatabase(host.Configuration.GetSection("Database"))
             .AddBreakServices()
+            .AddChangeRunSettingsServices()
             .AddViewModels()
             ;
 

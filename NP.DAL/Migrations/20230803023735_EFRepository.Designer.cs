@@ -11,8 +11,8 @@ using NP.DAL.Context;
 namespace NP.DAL.Migrations
 {
     [DbContext(typeof(NPDB))]
-    [Migration("20230731180016_sqlLite")]
-    partial class sqlLite
+    [Migration("20230803023735_EFRepository")]
+    partial class EFRepository
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,35 @@ namespace NP.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BreaksTable");
+                });
+
+            modelBuilder.Entity("NP.DAL.Entityes.СhangeSettingsDbModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("End")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("SetpointPaperFormatChange")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SetpointPaperWeightChange")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SetpointWireChange")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("TEXT");
+
+                    b.Property<TimeSpan?>("TimeRun")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("СhangeSettingsTable");
                 });
 #pragma warning restore 612, 618
         }

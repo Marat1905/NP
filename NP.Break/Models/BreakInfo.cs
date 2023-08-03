@@ -51,10 +51,11 @@ namespace NP.Break.Models
         /// <param name="wireSpeed">Фактическая скорость сетки</param>
         /// <param name="releerSpeed">Фактическая скорость наката</param>
         /// <param name="status">Место обрыва</param>
-        public BreakInfo(double setpointPaperWeight,double actualPaperWeight,
+        public BreakInfo(int id, double setpointPaperWeight,double actualPaperWeight,
                           double setpointPaperMoisture, double actualPaperMoisture,
                           double wireSpeed, double releerSpeed, BreakStatus status)
         {
+            Id = id;
             SetpointPaperWeight = setpointPaperWeight;
             ActualPaperWeight = actualPaperWeight;
             SetpointPaperMoisture = setpointPaperMoisture;
@@ -66,12 +67,11 @@ namespace NP.Break.Models
         }
 
         public BreakInfo() { }
+        #endregion
 
         public object Clone()
         {
-             return MemberwiseClone();
+            return MemberwiseClone();
         }
-        #endregion
-
     }
 }

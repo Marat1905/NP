@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NP.DAL.Entityes
 {
+    /// <summary>Таблица контроля параметров перед обрывом и фиксирования время простоя</summary>
     [Table("BreaksTable")]
     public class BreakDbModel:Entity
     {

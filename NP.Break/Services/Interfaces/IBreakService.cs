@@ -1,12 +1,13 @@
 ﻿using NP.Break.Infrastructure.EventArgs;
 using NP.Break.Models;
 using NP.Infrastructure.Enums;
+using NP.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace NP.Break.Services.Interfaces
 {
-    public interface IBreakService
+    public interface IBreakService:ISearch
     {
         /// <summary>Сигнал обрыва с БДМ </summary>
         int BreakInt { get; set; }
@@ -19,21 +20,6 @@ namespace NP.Break.Services.Interfaces
 
         /// <summary>Коллекция обрывов</summary>
         IEnumerable<BreakInfo> Breaks { get;}
-
-        /// <summary>Выборка за смену</summary>
-        /// <param name="data">Дата</param>
-        /// <param name="smena">Смена</param>
-        /// <param name="filter">Фильтр времени</param>
-        /// <returns>Коллекция обрывов</returns>
-        IEnumerable<BreakInfo> SmenaSearch(DateTime data,Smena smena,TimeSpan filter = new TimeSpan());
-
-        /// <summary>Выборка за период </summary>
-        /// <param name="start">Начальная дата поиска</param>
-        /// <param name="end">Конечная дата поиска</param>
-        /// <param name="filter">Фильтр времени</param>
-        /// <returns>Коллекция обрывов</returns>
-        IEnumerable<BreakInfo> Period(DateTime start,DateTime end,TimeSpan filter=new TimeSpan());
-
 
         delegate void BreakHandler(BreakService sender, BreakEventArgs e);
         event BreakHandler? Notify;

@@ -6,11 +6,29 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NP.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class sqlLite : Migration
+    public partial class EFRepository : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "СhangeSettingsTable",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    SetpointPaperWeightChange = table.Column<double>(type: "REAL", nullable: true),
+                    SetpointPaperFormatChange = table.Column<double>(type: "REAL", nullable: true),
+                    SetpointWireChange = table.Column<double>(type: "REAL", nullable: true),
+                    Start = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    End = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    TimeRun = table.Column<TimeSpan>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_СhangeSettingsTable", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "BreaksTable",
                 columns: table => new
@@ -37,6 +55,9 @@ namespace NP.DAL.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "СhangeSettingsTable");
+
             migrationBuilder.DropTable(
                 name: "BreaksTable");
         }

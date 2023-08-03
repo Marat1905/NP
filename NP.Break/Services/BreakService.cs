@@ -46,12 +46,12 @@ namespace NP.Break.Services
         public IEnumerable<BreakInfo> Breaks => BreakIenumerable(_Db.Items);
 
         /// <summary>Получаем все обрывы с БД за определенный период </summary>
-        public IEnumerable<BreakInfo> Period(DateTime start, DateTime end, TimeSpan filter = default)
+        public IEnumerable<BreakInfo> Period<BreakInfo>(DateTime start, DateTime end, TimeSpan filter = default)
         {
             if(end<start)
                 throw new ArgumentOutOfRangeException("Конечная дата поиска меньше либо равна начальной дате поиска");
             var result = _Db.Items.Where(x => x.EndBreak>=start && x.StartBreak<=end).ToList();
-            return BreakIenumerable(result,start,end,filter);
+            return (IEnumerable<BreakInfo>)BreakIenumerable(result,start,end,filter);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace NP.Break.Services
         /// <param name="filter">Фильтр времени</param>
         /// <returns>Коллекцию обрывов</returns>
         /// <exception cref="NotImplementedException"></exception>
-        public IEnumerable<BreakInfo> SmenaSearch(DateTime data, Smena smena, TimeSpan filter = default)
+        public IEnumerable<BreakInfo> SmenaSearch<BreakInfo>(DateTime data, Smena smena, TimeSpan filter = default)
         {
             DateTime start;
             DateTime end;
@@ -72,14 +72,14 @@ namespace NP.Break.Services
                     {
                         start = data.Date.Add(new TimeSpan(08, 00, 00));
                         end = data.Date.Add(new TimeSpan(20, 00, 00));
-                        return Period(start, end, filter);
+                        return Period<BreakInfo>(start, end, filter);
                     }
                     break;
                 case Smena.Night:
                     {
                         start = data.Date.Add(new TimeSpan(20, 00, 00));
                         end = data.Date.Add(new TimeSpan(1,08, 00, 00));
-                        return Period(start, end, filter);
+                        return Period<BreakInfo>(start, end, filter);
                     }
                     break;
             }
